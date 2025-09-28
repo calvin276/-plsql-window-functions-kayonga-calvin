@@ -1,6 +1,9 @@
 
 # Retail Sales Analytics with Window Functions
 
+# Kayonga Calvin 
+# 27753
+
 ## 📋 Problem Definition
 
 ### Business Context
@@ -37,6 +40,9 @@ CREATE TABLE customers (
     signup_date DATE
 );
 ```
+![Alt text](customer.PNG)
+
+![Alt text](custom.PNG)
 
 #### products Table
 **Purpose:** Product catalog and categorization
@@ -48,6 +54,10 @@ CREATE TABLE products (
     price NUMBER(10, 2)
 );
 ```
+
+![Alt text](product.PNG)
+
+![Alt text](prod.PNG)
 
 #### transactions Table
 **Purpose:** Sales transaction records
@@ -63,6 +73,10 @@ CREATE TABLE transactions (
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 ```
+
+![Alt text](transaction.PNG)
+
+![Alt text](trans.PNG)
 
 ## 📊 SQL Queries & Results
 
@@ -81,6 +95,17 @@ JOIN products p ON t.product_id = p.product_id
 GROUP BY c.region, EXTRACT(QUARTER FROM t.sale_date), p.name
 ORDER BY region, quarter, sales_rank;
 ```
+**Results:**
+| REGION  | QUARTER | PRODUCT_NAME          | TOTAL_SALES | SALES_RANK |
+|---------|---------|-----------------------|-------------|------------|
+| Kampala |       1 | Organic Green Tea     |    12000.00 |          1 |
+| Kigali  |       1 | Premium Coffee Beans  |    30000.00 |          1 |
+| Kigali  |       1 | Local Raw Honey       |    16000.00 |          2 |
+| Nairobi |       1 | Handmade Woven Basket |    50000.00 |          1 |
+| Kampala |       2 | Premium Coffee Beans  |    30000.00 |          1 |
+| Kigali  |       2 | Herbal Tea Blend      |    22000.00 |          1 |
+| Nairobi |       2 | Traditional Fabric    |    36000.00 |          1 |
+| Nairobi |       2 | African Shea Butter   |    19000.00 |          2 |
 
 ### Query 2: Running Monthly Sales Totals
 ```sql
@@ -238,5 +263,5 @@ ORDER BY month;
 ---
 
 **Project Date:** 2025  
-**Author:** Retail Analytics Team  
+**Author:** Kayonga 
 **Status:** ✅ Completed
